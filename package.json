@@ -1,0 +1,34 @@
+{
+  "name": "qimen-dunjia-engine",
+  "version": "1.0.0",
+  "description": "Qimen Dunjia (奇门遁甲) chart calculation engine for Node.js — hour-based rotating-plate method, futou-based Zhirun, independent Zhi-Shi door rotation. Validated against 61 classical case charts.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "qimen",
+    "qimen-dunjia",
+    "qi-men-dun-jia",
+    "奇门遁甲",
+    "排盘",
+    "chinese-astrology",
+    "divination",
+    "calendar",
+    "zhrun",
+    "rotating-plate"
+  ],
+  "author": "QiMenSeek",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyl743405571-cpu/qimen-dunjia-engine.git"
+  },
+  "homepage": "https://qimen-static.aicreditsapi.com/calculator.html",
+  "dependencies": {
+    "lunar-javascript": "^1.7.3"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
