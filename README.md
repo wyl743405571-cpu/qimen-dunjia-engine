@@ -27,10 +27,15 @@ Most open-source Qimen libraries cut corners. This one implements the classical 
 ## Install
 
 ```bash
-npm install qimen-dunjia-engine
-```
+# Install straight from GitHub (npm supports this natively)
+npm install github:wyl743405571-cpu/qimen-dunjia-engine
 
-(or `git clone` + `npm install` if the npm package is not yet published)
+# Or clone + install
+git clone https://github.com/wyl743405571-cpu/qimen-dunjia-engine.git
+cd qimen-dunjia-engine && npm install
+
+# npm registry package: coming soon
+```
 
 ## Usage
 
