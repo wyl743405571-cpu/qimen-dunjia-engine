@@ -1,0 +1,601 @@
+{
+  "source": "Casebook library: page-scanned OCR of a printed 1990s casebook, transcribed case by case.",
+  "sourceBook": "《奇门遁甲现代实例精解》杜新会著 (as printed on the scanned title pages: 伊犁人民出版社)",
+  "format": "per case: page (scan page number) | date | hour | sizhu (four pillars) | bookJu (book-stated ju)",
+  "notes": [
+    "84 transcribed entries; 5 lack a complete date in the OCR capture and are skipped by the audit script (79 testable).",
+    "hour: the hour value captured from the entry; the audit script derives a deterministic time from the hour-pillar midpoint instead, so this field is archived but not used for computation.",
+    "bookJu examples: 阳五 = Yang Dun ju 5; 阴三 = Yin Dun ju 3.",
+    "This library is independent from verify/book_case_library_tagged.json (142-case classical library from different books). Do not mix the two datasets in any single statistic."
+  ],
+  "cases": [
+    {
+      "page": 62,
+      "date": "1998-02-07",
+      "hour": 13,
+      "sizhu": "戊寅甲寅乙酉癸未",
+      "bookJu": "阳五"
+    },
+    {
+      "page": 65,
+      "date": "1998-11-10",
+      "hour": 21,
+      "sizhu": "戊寅癸亥辛酉己亥",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 68,
+      "date": "1998-07-24",
+      "hour": 19,
+      "sizhu": "戊寅己未壬申庚戌",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 73,
+      "date": "1997-06-11",
+      "hour": 16,
+      "sizhu": "丁丑丙午甲申壬申",
+      "bookJu": "阳三"
+    },
+    {
+      "page": 91,
+      "date": "1997-07-29",
+      "hour": 14,
+      "sizhu": "丁丑丁未壬申丁未",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 92,
+      "date": "1997-08-07",
+      "hour": 9,
+      "sizhu": "丁丑戊申丁巳乙巳",
+      "bookJu": "阴二"
+    },
+    {
+      "page": 93,
+      "date": "1997-07-10",
+      "hour": 18,
+      "sizhu": "丁丑戊申甲申癸酉",
+      "bookJu": "阴五"
+    },
+    {
+      "page": 99,
+      "date": "1997-08-01",
+      "hour": 20,
+      "sizhu": "丁丑丁未乙亥丙戌",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 103,
+      "date": "1996-06-28",
+      "hour": 15,
+      "sizhu": "丙子甲午丙申丙申",
+      "bookJu": "阴九"
+    },
+    {
+      "page": 105,
+      "date": "1996-09-28",
+      "hour": 17,
+      "sizhu": "丙子丁酉戊辰辛酉",
+      "bookJu": "阴六"
+    },
+    {
+      "page": 107,
+      "date": "1997-11-28",
+      "hour": 13,
+      "sizhu": "丁丑辛亥甲戌辛未",
+      "bookJu": "阴二"
+    },
+    {
+      "page": 112,
+      "date": "1997-12-01",
+      "hour": 14,
+      "sizhu": "丁丑辛亥丁丑丁未",
+      "bookJu": "阴二"
+    },
+    {
+      "page": 121,
+      "date": "1997-07-27",
+      "hour": 18,
+      "sizhu": "丁丑丁未庚午乙酉",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 129,
+      "date": "1996-08-03",
+      "hour": 6,
+      "sizhu": "丙子乙未壬申癸卯",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 130,
+      "date": "1997-08-26",
+      "hour": 8,
+      "sizhu": "丁丑戊申庚子庚辰",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 139,
+      "date": null,
+      "hour": null,
+      "sizhu": "戊寅丁巳庚辰壬午",
+      "bookJu": "阳六"
+    },
+    {
+      "page": 142,
+      "date": "1996-08-06",
+      "hour": 8,
+      "sizhu": "丙子乙未乙亥庚辰",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 146,
+      "date": "1996-08-30",
+      "hour": 13,
+      "sizhu": "丙子丙申己亥辛未",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 149,
+      "date": "1996-12-24",
+      "hour": 11,
+      "sizhu": "丙子庚子乙未壬午",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 152,
+      "date": "1998-11-10",
+      "hour": 15,
+      "sizhu": "戊寅癸亥辛酉丙申",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 155,
+      "date": "1998-09-27",
+      "hour": 15,
+      "sizhu": "戊寅辛酉丁丑戊申",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 160,
+      "date": "1997-08-16",
+      "hour": 21,
+      "sizhu": "丁丑戊申庚寅丁亥",
+      "bookJu": "阴八"
+    },
+    {
+      "page": 170,
+      "date": "1998-12-21",
+      "hour": 11,
+      "sizhu": "戊寅甲子壬寅丙午",
+      "bookJu": "阴七"
+    },
+    {
+      "page": 177,
+      "date": "1996-10-09",
+      "hour": 12,
+      "sizhu": "丙子戊戌己卯庚午",
+      "bookJu": "阴六"
+    },
+    {
+      "page": 180,
+      "date": "1998-01-08",
+      "hour": 9,
+      "sizhu": "丁丑癸丑乙卯癸未",
+      "bookJu": "阳八"
+    },
+    {
+      "page": 182,
+      "date": "1996-10-28",
+      "hour": 19,
+      "sizhu": "丙子戊戌戊戌壬戌",
+      "bookJu": "阴五"
+    },
+    {
+      "page": 185,
+      "date": "1998-11-08",
+      "hour": 19,
+      "sizhu": "戊寅癸亥己未甲戌",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 188,
+      "date": "1998-09-20",
+      "hour": 18,
+      "sizhu": "戊寅辛酉庚午乙酉",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 196,
+      "date": "1998-12-16",
+      "hour": 20,
+      "sizhu": "戊寅甲子丁酉庚戌",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 202,
+      "date": "1998-10-17",
+      "hour": 21,
+      "sizhu": "戊寅壬戌丁酉辛亥",
+      "bookJu": "阴六"
+    },
+    {
+      "page": 211,
+      "date": "1996-12-29",
+      "hour": 21,
+      "sizhu": "丙子庚子庚子丁亥",
+      "bookJu": "阳七"
+    },
+    {
+      "page": 214,
+      "date": "1998-06-28",
+      "hour": 17,
+      "sizhu": "戊寅戊午丙午丁酉",
+      "bookJu": "阴六"
+    },
+    {
+      "page": 223,
+      "date": "1997-12-07",
+      "hour": 7,
+      "sizhu": "丁丑壬子癸未丙辰",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 224,
+      "date": "1997-12-13",
+      "hour": 16,
+      "sizhu": "丁丑壬子己丑壬申",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 229,
+      "date": "1996-09-10",
+      "hour": 15,
+      "sizhu": "丙子丁酉庚戌甲申",
+      "bookJu": "阴九"
+    },
+    {
+      "page": 237,
+      "date": "1998-04-06",
+      "hour": 22,
+      "sizhu": "戊寅丙辰癸未癸亥",
+      "bookJu": "阳四"
+    },
+    {
+      "page": 239,
+      "date": null,
+      "hour": null,
+      "sizhu": "丙子戊戌庚子甲申",
+      "bookJu": "阴八"
+    },
+    {
+      "page": 242,
+      "date": "1997-12-27",
+      "hour": 19,
+      "sizhu": "丁丑壬子癸卯壬戌",
+      "bookJu": "阳七"
+    },
+    {
+      "page": 255,
+      "date": "1996-03-26",
+      "hour": 14,
+      "sizhu": "丙子辛卯壬戌丁未",
+      "bookJu": "阳六"
+    },
+    {
+      "page": 263,
+      "date": "1997-03-19",
+      "hour": 21,
+      "sizhu": "丁丑癸卯庚申丁亥",
+      "bookJu": "阳四"
+    },
+    {
+      "page": 274,
+      "date": "1997-01-22",
+      "hour": 8,
+      "sizhu": "丙子辛丑甲子戊辰",
+      "bookJu": "阳三"
+    },
+    {
+      "page": 278,
+      "date": "1997-09-10",
+      "hour": 8,
+      "sizhu": "丁丑己酉乙卯庚辰",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 284,
+      "date": "1997-04-18",
+      "hour": 15,
+      "sizhu": "丁丑甲辰庚寅甲申",
+      "bookJu": "阳七"
+    },
+    {
+      "page": 290,
+      "date": "1998-04-08",
+      "hour": 11,
+      "sizhu": "戊寅丙辰乙酉壬午",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 293,
+      "date": "1996-03-22",
+      "hour": 11,
+      "sizhu": "丙子辛卯戊午戊午",
+      "bookJu": "阳九"
+    },
+    {
+      "page": 295,
+      "date": "1998-04-09",
+      "hour": 17,
+      "sizhu": "戊寅丙辰丙戌丁酉",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 298,
+      "date": null,
+      "hour": null,
+      "sizhu": "丁丑甲辰甲申辛未",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 300,
+      "date": "1997-07-24",
+      "hour": 22,
+      "sizhu": "丁丑丁未丁卯辛亥",
+      "bookJu": "阴七"
+    },
+    {
+      "page": 306,
+      "date": "1997-09-23",
+      "hour": 8,
+      "sizhu": "丁丑己酉戊辰丙辰",
+      "bookJu": "阴七"
+    },
+    {
+      "page": 311,
+      "date": "1997-11-10",
+      "hour": 18,
+      "sizhu": "丁丑辛亥丙辰丁酉",
+      "bookJu": "阴九"
+    },
+    {
+      "page": 314,
+      "date": "1998-08-11",
+      "hour": 20,
+      "sizhu": "戊寅庚申庚寅丙戌",
+      "bookJu": "阴八"
+    },
+    {
+      "page": 318,
+      "date": "1998-01-16",
+      "hour": 20,
+      "sizhu": "丁丑癸丑癸亥壬戌",
+      "bookJu": "阳五"
+    },
+    {
+      "page": 323,
+      "date": "1997-10-27",
+      "hour": 8,
+      "sizhu": "丁丑庚戌壬寅甲辰",
+      "bookJu": "阴八"
+    },
+    {
+      "page": 327,
+      "date": "1997-04-15",
+      "hour": 10,
+      "sizhu": "丁丑甲辰丁亥乙巳",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 338,
+      "date": "1997-01-09",
+      "hour": 16,
+      "sizhu": "丙子辛丑辛亥丙申",
+      "bookJu": "阳二"
+    },
+    {
+      "page": 343,
+      "date": "1998-09-01",
+      "hour": 3,
+      "sizhu": "戊寅辛酉癸亥丙辰",
+      "bookJu": "阴六"
+    },
+    {
+      "page": 348,
+      "date": "1997-02-09",
+      "hour": 14,
+      "sizhu": "丁丑壬寅壬午丁未",
+      "bookJu": "阳八"
+    },
+    {
+      "page": 350,
+      "date": "1997-09-13",
+      "hour": 12,
+      "sizhu": "丁丑己酉戊午戊午",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 352,
+      "date": "2000-03-22",
+      "hour": 19,
+      "sizhu": "庚辰己卯己卯癸酉",
+      "bookJu": "阳三"
+    },
+    {
+      "page": 355,
+      "date": "1997-08-23",
+      "hour": 5,
+      "sizhu": "丁丑戊申丁酉癸卯",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 362,
+      "date": "1997-08-23",
+      "hour": 16,
+      "sizhu": "丁丑戊申丁酉戊申",
+      "bookJu": "阴一"
+    },
+    {
+      "page": 369,
+      "date": "1997-10-15",
+      "hour": 7,
+      "sizhu": "丁丑庚戌庚寅庚辰",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 373,
+      "date": "1995-11-14",
+      "hour": 7,
+      "sizhu": "乙亥丁亥己酉戊辰",
+      "bookJu": "阴五"
+    },
+    {
+      "page": 377,
+      "date": "1996-04-09",
+      "hour": 8,
+      "sizhu": "丙子壬辰丙子壬辰",
+      "bookJu": "阳七"
+    },
+    {
+      "page": 380,
+      "date": "1998-04-27",
+      "hour": 17,
+      "sizhu": "戊寅丙辰甲辰癸酉",
+      "bookJu": "阳八"
+    },
+    {
+      "page": 382,
+      "date": "1997-07-18",
+      "hour": 12,
+      "sizhu": "丁丑丁未辛酉甲午",
+      "bookJu": "阴五"
+    },
+    {
+      "page": 388,
+      "date": "1996-09-13",
+      "hour": 18,
+      "sizhu": "丙子丁酉癸丑辛酉",
+      "bookJu": "阴九"
+    },
+    {
+      "page": 391,
+      "date": null,
+      "hour": null,
+      "sizhu": "丁丑甲辰庚子癸未",
+      "bookJu": "阳二"
+    },
+    {
+      "page": 401,
+      "date": null,
+      "hour": null,
+      "sizhu": "丙子庚子癸未丙辰",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 407,
+      "date": "1998-09-26",
+      "hour": 18,
+      "sizhu": "戊寅辛酉丙子丁酉",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 414,
+      "date": "1997-01-20",
+      "hour": 4,
+      "sizhu": "丙子辛丑壬戌戊申",
+      "bookJu": "阳五"
+    },
+    {
+      "page": 417,
+      "date": "1998-08-03",
+      "hour": 22,
+      "sizhu": "戊寅己未壬午辛亥",
+      "bookJu": "阴二"
+    },
+    {
+      "page": 419,
+      "date": "1998-04-27",
+      "hour": 16,
+      "sizhu": "戊寅丙辰甲辰壬申",
+      "bookJu": "阳八"
+    },
+    {
+      "page": 421,
+      "date": "1998-12-04",
+      "hour": 17,
+      "sizhu": "戊寅癸亥乙酉乙酉",
+      "bookJu": "阴七"
+    },
+    {
+      "page": 426,
+      "date": "1996-09-16",
+      "hour": 14,
+      "sizhu": "丙子丁酉丙辰乙未",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 428,
+      "date": "1996-04-30",
+      "hour": 17,
+      "sizhu": "乙亥甲申乙酉甲申",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 433,
+      "date": "1996-03-02",
+      "hour": 19,
+      "sizhu": "丙子庚寅戊戌壬戌",
+      "bookJu": "阳一"
+    },
+    {
+      "page": 446,
+      "date": "1998-08-07",
+      "hour": 12,
+      "sizhu": "戊寅己未丙戌甲午",
+      "bookJu": "阴五"
+    },
+    {
+      "page": 454,
+      "date": "1996-04-14",
+      "hour": 13,
+      "sizhu": "丙子壬辰辛巳乙未",
+      "bookJu": "阳五"
+    },
+    {
+      "page": 461,
+      "date": "1999-07-01",
+      "hour": 19,
+      "sizhu": "己卯庚午甲寅甲戌",
+      "bookJu": "阴三"
+    },
+    {
+      "page": 463,
+      "date": "1998-06-01",
+      "hour": null,
+      "sizhu": "己卯辛未庚寅甲申",
+      "bookJu": "阴四"
+    },
+    {
+      "page": 481,
+      "date": "1999-04-24",
+      "hour": 20,
+      "sizhu": "己卯戊辰丙午戊戌",
+      "bookJu": "阳八"
+    },
+    {
+      "page": 483,
+      "date": "1997-04-23",
+      "hour": 11,
+      "sizhu": "丁丑甲辰乙未壬午",
+      "bookJu": "阳五"
+    },
+    {
+      "page": 484,
+      "date": "1997-01-24",
+      "hour": 18,
+      "sizhu": "丙子辛丑丙寅丁酉",
+      "bookJu": "阳三"
+    }
+  ]
+}

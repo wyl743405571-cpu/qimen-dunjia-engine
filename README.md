@@ -4,7 +4,7 @@
 
 > 时家转盘法 · 置闰符头定元 · 值使独立转门
 > 
-> **实测数据（每一条都可复现，脚本在 [`verify/`](verify/)）**：44,064 次全量遍历崩溃 0、不变式违反 0；41 种格局零命中盘 0%、无恒真规则、无死规则；拆补 vs 置闰分歧率 41.6%。
+> **实测数据（每一条都可复现，脚本在 [`verify/`](verify/)）**：44,064 次全量遍历崩溃 0、不变式违反 0；41 种格局零命中盘 0%、无恒真规则、无死规则；拆补 vs 置闰分歧率 41.6%；两批书载案例审计（142 例与 79 例，各自独立口径，不可混算）。
 
 ## Why this engine
 
@@ -19,7 +19,7 @@ Most open-source Qimen libraries cut corners. This one implements the classical 
 
 ## Features
 
-- Hour-based rotating-plate method (时家转盘), both **Chabu (拆补)** and **Zhirun (置闰)** determination
+- Hour-based rotating-plate method (时家转盘), **Chabu (拆补)**, **Zhirun (置闰)** and **Shen Jie Qi (超神接气)** determination
 - Full plate: earth plate (地盘), heaven plate (天盘), 9 stars (九星), 8 doors (八门), 8 gods (八神), hidden stems (遁干)
 - **Formation detection (格局)**: 41 formations detected in real computation — Fu-Yin (伏吟), Fan-Yin (反吟), 门迫, 击刑, 入墓, 青龙返首, 飞鸟跌穴, 玉女守门, 三奇得使, 十干克应 combinations, and more
 - Horse palace (马星), void branches (旬空), year/month stems lodging
@@ -44,7 +44,7 @@ cd qimen-dunjia-engine && npm install
 ```js
 const qimen = require('qimen-dunjia-engine');
 
-// year, month, day, hour, minute, method: 'zhirun' | 'chaibu'
+// year, month, day, hour, minute, method: 'zhirun' | 'chaibu' | 'shenjieqi'
 const chart = qimen.paipan(2026, 6, 7, 11, 0, 'zhirun');
 
 console.log(chart.juNum);        // 6  (Yang Dun 6)
@@ -71,7 +71,7 @@ See [`examples/basic.js`](examples/basic.js) for a runnable demo that prints a f
 | Field | Meaning |
 |---|---|
 | `juNum` / `isYang` | Ju number (1–9) and Yin/Yang dun |
-| `method` | `zhirun` or `chaibu` |
+| `method` | `zhirun` / `chaibu` / `shenjieqi` |
 | `xun` / `kong` / `kongGongs` | Hour xun, void branches, void palaces |
 | `zhiFuXing` / `zhiFuGong` | Zhi-Fu star and its palace |
 | `zhiShiMen` / `zhiShiGong` | Zhi-Shi door and its palace |
@@ -102,7 +102,8 @@ same output on your own machine:
 node verify/sweep_coverage_v2.js 2000 2050   # 44,064 charts: 0 crashes, 0 invariant violations
 node verify/measure_divergence.js 30# 12,960 moments: 41.6% of charts differ between Chaibu/Zhirun
 node verify/measure_geju.js 10                # 41 formations, 0% zero-hit charts, no dead rules
-node verify/audit_book_cases.js               # 142-case library audit
+node verify/audit_book_cases.js               # 142-case classical library audit
+node verify/audit_book_cases_v2.js            # 79-case 1990s casebook audit (incl. Shen Jie Qi mode)
 ```
 
 See [`verify/README.md`](verify/README.md) for what each script proves, what it does
@@ -115,6 +116,13 @@ citations) reproduces the book-stated ju number **64.9% of the time under Chaibu
 (63/97 testable) vs **42.6% under Zhirun** (40/94). Only 51 of 142 cases carry an
 expected verdict, and 45 of those are OCR-extracted and still flagged `needsReview`.
 So: use the library for regression exploration, not as an accuracy claim.
+
+The second, independent library (`verify/book499_case_library.json`, 79 testable cases
+from a 1990s casebook) reproduces the book-stated ju **82.3% under Chaibu** (65/79) and
+**91.1% under the Shen Jie Qi mode** (72/79). Note what that mode is: it is *fitted from
+this casebook's own data* — it explains this book, it does not claim to be "more
+classical". The default remains Chaibu. Five boundary cases stay unexplained, listed by
+the script itself. The two libraries never mix: different books, different denominators.
 
 ## Live tools
 

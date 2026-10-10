@@ -1,8 +1,8 @@
 /**
  * qimen-dunjia-engine — Qimen Dunjia (奇门遁甲) chart calculation engine for Node.js
  *
- * Hour-based rotating-plate method (时家转盘). Supports both Chabu (拆补)
- * and Zhirun (置闰) ju determination.
+ * Hour-based rotating-plate method (时家转盘). Supports Chabu (拆补),
+ * Zhirun (置闰) and Shen Jie Qi (超神接气) ju determination.
  *
  * Key design points:
  *   1. Zhirun strictly follows the futou day (上元符头: 甲子/甲午/己卯/己酉)
@@ -11,9 +11,15 @@
  *   3. Rotating plate paths use plate palace order [1,8,3,4,9,2,7,6],
  *      not linear order.
  *   4. Tian-Qin (天禽) is lodged in Kun palace 2, travelling with Tian-Rui.
+ *   5. Shen Jie Qi (超神接气) mode: when the futou leads the incoming solar
+ *      term by ≤ 9 days ("超神不过九"), the whole 15-day yuan segment pulls
+ *      the term forward. Fitted against, and audited on, a published casebook
+ *      library — see verify/audit_book_cases_v2.js.
  *
- * Validation: reproduced 61 classical case charts palace-by-palace, plus
- * cross-checked against multiple public charting references.
+ * Validation: cross-checked against multiple public charting references.
+ * All published numbers are reproducible from verify/ scripts on your own
+ * machine — see verify/README.md for what each script proves and what it
+ * does not.
  */
 
 const { Lunar, Solar } = require('lunar-javascript');
@@ -357,6 +363,72 @@ function getJuDateZhirun(year, month, day) {  // v3.1 补回丢失的函数声�
   return { jieqi: jn, isYang: iy2, juType: iy2 ? '阳遁' : '阴遁', juNum: juNum2, isZhiRun: true, approx: true };
 }
 // ========== 严格置闰法结束 ==========
+
+// ========== 超神接气法（Shen Jie Qi，书派口径，2026-10 新增）==========
+// 背景：对一批 1990 年代书载案例做复现审计（数据见 verify/book499_case_library.json，
+//       79 例可测）时发现：按主流拆补口径只命中 82.3%；数据指向该书派使用
+//       「超神接气」口径（符头先到、提前用下一节气）→ 命中 91.1%。
+// 规则：
+//   1) 基准节气按精确交节时刻判定（与拆补/置闰同口径）
+//   2) F = 上元符头（当日之前最近的「甲子/甲午/己卯/己酉」日）
+//   3) 若 F 之后第一个交节日距 F ≤ 9 天（「超神不过九」）→ 整个三元段
+//      [F, F+15) 统一改用该交节气的局数表
+//   4) 元 = 段内位置（fuTouYuan，与拆补法一致）
+// 口诀依据：「超神不过九，过九则置闰」——与引擎置闰法 chaoshen>=9 置闰逻辑同源。
+// 阈值稳健性：K=8/9/10 为平台期（非过拟合），由 verify/audit_book_cases_v2.js 输出验证。
+// 注：剩余 5 例边界差异（含交节恰在 F+9 天的书方相反处理）如实保留，见审计输出。
+var _jqDayCache = {};
+/** 判定某日是否交节日（缓存；返回 24 节气名或 null） */
+function jieQiOnDay(y, m, d) {
+  var k = y + '-' + m + '-' + d;
+  if (_jqDayCache[k] !== undefined) return _jqDayCache[k];
+  var v = null;
+  try {
+    var j = Solar.fromYmd(y, m, d).getLunar().getJieQi();
+    if (j && JQJU[j]) v = j;
+  } catch (e) {}
+  _jqDayCache[k] = v;
+  return v;
+}
+/** 往前找最近的上元符头（甲子/甲午/己卯/己酉）；上元符头间隔 15 天，最多回溯 15 天必命中 */
+function upperFuTouDate(year, month, day) {
+  var UPPER_FU = { '甲子': 1, '甲午': 1, '己卯': 1, '己酉': 1 };
+  for (var b = 0; b <= 15; b++) {
+    var dt = new Date(year, month - 1, day - b);
+    var gz = dGZDate(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
+    if (UPPER_FU[gz]) return { y: dt.getFullYear(), m: dt.getMonth() + 1, d: dt.getDate(), gz: gz, back: b };
+  }
+  return null;
+}
+/** 从 (y,m,d) 次日开始找第一个交节日（上限 20 天）；gap = 距 F 的天数 */
+function nextJieQiAfter(y, m, d) {
+  for (var i = 1; i <= 20; i++) {
+    var dt = new Date(y, m - 1, d + i);
+    var jn = jieQiOnDay(dt.getFullYear(), dt.getMonth() + 1, dt.getDate());
+    if (jn) return { y: dt.getFullYear(), m: dt.getMonth() + 1, d: dt.getDate(), name: jn, gap: i };
+  }
+  return null;
+}
+function getJuDateShenJieQi(year, month, day, hour, minute) {
+  var jqInfo = jqDate(year, month, day, hour, minute);
+  var jn = jqInfo.name;
+  var dgz = dGZDate(year, month, day);
+  var yuan = fuTouYuan(dgz);
+  var f = upperFuTouDate(year, month, day);
+  var chaoShen = false, gap = null;
+  if (f) {
+    var nx = nextJieQiAfter(f.y, f.m, f.d);
+    if (nx && nx.gap <= 9) { jn = nx.name; chaoShen = true; gap = nx.gap; }
+  }
+  var iy = YANGJQ.indexOf(jn) !== -1;
+  return { jieqi: jn, isYang: iy, juType: iy ? '阳遁' : '阴遁',
+           juNum: (JQJU[jn] || [1])[yuan], isZhiRun: false,
+           shenJieQi: true, chaoShen: chaoShen,
+           yuan: ['上元', '中元', '下元'][yuan],
+           fuTou: f ? f.gz : null, chaoShenGap: gap };
+}
+// ========== 超神接气法结束 ==========
+
 function getJuDate(year, month, day, method, hour, minute) {
   // v6.25：透传时刻，交节当天按精确交节时刻判定节气（避免取错局数表）
   var jqInfo = jqDate(year, month, day, hour, minute);
@@ -366,6 +438,10 @@ function getJuDate(year, month, day, method, hour, minute) {
   var juNum;
   var isZhiRun = (method === 'zhirun');
   
+  // 超神接气法（Shen Jie Qi，书派口径，2026-10 新增）
+  if (method === 'shenjieqi') {
+    return getJuDateShenJieQi(year, month, day, hour, minute);
+  }
   if (isZhiRun) {
     return getJuDateZhirunStrict(year, month, day, hour, minute);
   }
@@ -852,6 +928,9 @@ function paipan(year, month, day, hour, minute, method) {
     isZhiRun: juInfo.isZhiRun,
     zhirunYuan: juInfo.zhirunYuan,
     zhirunSegStart: juInfo.zhirunSegStart,
+    shenJieQi: juInfo.shenJieQi || false,
+    chaoShen: juInfo.chaoShen || false,
+    chaoShenGap: juInfo.chaoShenGap !== undefined ? juInfo.chaoShenGap : null,
     approx: juInfo.approx,
     method: method,
     pan: 'zhuan',   // 产品定位：只做转盘（两书案例与断语体系均为转盘框架，2026-10-02 龙哥拍板全删飞盘）
@@ -1122,7 +1201,7 @@ module.exports = {
   ZHUA_GONG_ORDER, MEN_SEQUENCE, XING_SEQUENCE,
   getShiChenIndex, shiChenToDZ, z2G, getMa, gXun, jq, jqDate,
   yGZ, mGZ, dGZ, hGZ, mGZDate, dGZDate,
-  getJu, getJuDate, diPan, tiPan, jXing, bMen, bShen,
+  getJu, getJuDate, getJuDateShenJieQi, upperFuTouDate, jieQiOnDay, diPan, tiPan, jXing, bMen, bShen,
   detectGeJu, cFuxin, cFanin, cQing, cFei, cTianw, cYunv, cGeng,
   cSanz, cWuji, cTiany, cYiqi, cZhuq, cBaih, cTengs, cYunvs,
   paipan, paipanLegacy, calcNianMing, getNianMingGong, getSiGan,
