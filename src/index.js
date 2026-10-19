@@ -864,6 +864,26 @@ function detectGeJu(d) {
 
 // ========== 主入口 ==========
 
+/** 暗干（暗奇）：后端预计算写入盘面，供解读层使用（绝不由 LLM 推演）
+ * 方法（张志春《神奇之门》体系 + 豆包 V2 后端预计算纪律）：
+ *   时干加值使门落宫，阳顺阴逆飞布三奇六仪（洛书飞宫序，含中五，九干填满九宫）
+ *  - 六甲时（时干=甲）：甲遁六仪，起干用遁干 dunGan
+ *  - 定义性质：anGan[值使门落宫] === 起始干（时干/遁干） */
+function anGan(zhiShiGong, shiGan, dunGan, isYang) {
+  var startGan = (shiGan === '甲') ? dunGan : shiGan;
+  var startIdx = LIUYI.indexOf(startGan);
+  if (startIdx < 0) startIdx = 0;
+  var gongSeq = isYang ? [1,2,3,4,5,6,7,8,9] : [9,8,7,6,5,4,3,2,1];
+  var baseIdx = gongSeq.indexOf(zhiShiGong);
+  if (baseIdx < 0) baseIdx = 0;
+  var map = {};
+  for (var i = 0; i < 9; i++) {
+    var gong = gongSeq[(baseIdx + i) % 9];
+    map[gong] = LIUYI[(startIdx + i) % 9];
+  }
+  return map;
+}
+
 function paipan(year, month, day, hour, minute, method) {
   if (hour === undefined) hour = 12;
   if (minute === undefined) minute = 0;
@@ -905,6 +925,7 @@ function paipan(year, month, day, hour, minute, method) {
   // v3-fix: 九星修正后，jXing 返回 zfOG 字段，保存供 paipan 结果使用
   var men = bMen(dp, xun.xun, hgz, juInfo.isYang);
   var shen = bShen(tp.zhiFuGong, juInfo.isYang);
+  var ag = anGan(men.zhiShiTarget, hgz[0], tp.dunGan, juInfo.isYang);
   
   // 4. 马星和空亡
   // 时家奇门马星按时支起，不用日支（v6.24 修正）
@@ -950,6 +971,7 @@ function paipan(year, month, day, hour, minute, method) {
     maGong: mg,
     kongGongs: kg,
     dunGan: tp.dunGan,
+    anGan: ag,
     geju: geju,
     date: dateStr,
     time: timeStr,
