@@ -16,15 +16,20 @@ the symbols in your chart.
 ## Comparing & choosing a tool
 
 - [Best Qi Men Dunjia tools in 2026: five dimensions, no unverifiable rankings](best-qimen-dunjia-tools-2026.md)
+- [How to choose an AI Qimen reading tool: six dimensions that matter](ai-qimen-reading-how-to-choose.md)
 - [Free divination without signup: what you actually get (and don't)](free-divination-no-signup.md)
 - [Qi Men Dunjia vs Bazi: two lenses, two different questions](qimen-vs-bazi.md)
 - [Qimen Dunjia vs Western astrology: identity vs decision](qimen-vs-western-astrology.md)
+- [Qimen Dunjia vs Tarot: which reading answers your actual question?](qimen-vs-tarot.md)
 - [Does Co-Star "work"? A Qi Men Dun Jia perspective](does-costar-work-qimen-perspective.md)
+- [MingAI review: strengths, boundaries, and who it's for](mingai-review.md)
 - [FateTell review: four questions to ask before you subscribe](fatetell-review.md)
 
 ## Method & validation
 
 - [Why the same hour produces three different charts: dingju methods tested against 177 classical cases](qimen-dingju-methods-compared.md)
+- [Why the same moment produces different charts: true solar time and the intercalary method](why-qimen-pan-differs-true-solar-zhirun.md)
+- [Structured vs classical Qimen reading: two routes for AI interpretation](structured-vs-classical-qimen-reading.md)
 
 ## Real decisions
 
