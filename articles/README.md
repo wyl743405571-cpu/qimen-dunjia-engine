@@ -6,6 +6,11 @@ the symbols in your chart.
 
 - [Why we translate Qi Men Dun Jia into a "space-time decision system"](why-space-time-decision-system.md)
 - [Does Co-Star "work"? A Qi Men Dun Jia perspective](does-costar-work-qimen-perspective.md)
+- [Qi Men Dunjia vs Bazi: two lenses, two different questions](qimen-vs-bazi.md)
+- [Best Qi Men Dunjia tools in 2026: five dimensions, no unverifiable rankings](best-qimen-dunjia-tools-2026.md)
+- [Free divination without signup: what you actually get (and don't)](free-divination-no-signup.md)
+- [Will we get back together? What a chart can and cannot tell you](will-we-get-back-together.md)
+- [Should I quit my job? Reading the decision with Qi Men Dunjia](should-i-quit-my-job.md)
 
 ## Try it yourself — free, no account
 
