@@ -8,6 +8,7 @@ the symbols in your chart.
 
 - [Qimen Dunjia for beginners: a plain-language starting guide](qimen-dunjia-for-beginners.md)
 - [The four components of a Qimen chart: a beginner's map](four-components-qimen-chart.md)
+- [How to read a Qimen chart in four layers: a worked walkthrough](how-to-read-a-qimen-chart.md)
 - [Yin, yang, and the five elements: the grammar behind the symbols](yin-yang-five-elements.md)
 - [The nine palaces: Qimen's spatial map of a situation](nine-palaces-spatial-energy.md)
 - [The eight gods: invisible forces and when to heed them](eight-gods-invisible-forces.md)
@@ -17,12 +18,19 @@ the symbols in your chart.
 - [Best Qi Men Dunjia tools in 2026: five dimensions, no unverifiable rankings](best-qimen-dunjia-tools-2026.md)
 - [Free divination without signup: what you actually get (and don't)](free-divination-no-signup.md)
 - [Qi Men Dunjia vs Bazi: two lenses, two different questions](qimen-vs-bazi.md)
+- [Qimen Dunjia vs Western astrology: identity vs decision](qimen-vs-western-astrology.md)
 - [Does Co-Star "work"? A Qi Men Dun Jia perspective](does-costar-work-qimen-perspective.md)
+- [FateTell review: four questions to ask before you subscribe](fatetell-review.md)
+
+## Method & validation
+
+- [Why the same hour produces three different charts: dingju methods tested against 177 classical cases](qimen-dingju-methods-compared.md)
 
 ## Real decisions
 
 - [Will we get back together? What a chart can and cannot tell you](will-we-get-back-together.md)
 - [Should I quit my job? Reading the decision with Qi Men Dunjia](should-i-quit-my-job.md)
+- [Is now the right time to start a business? A Qimen perspective](is-now-the-right-time-to-start-a-business.md)
 - [Why we translate Qi Men Dun Jia into a "space-time decision system"](why-space-time-decision-system.md)
 
 ## Try it yourself — free, no account
