@@ -132,6 +132,17 @@ the script itself. The two libraries never mix: different books, different denom
 - Measured school divergence report: **https://qimenseek.aicreditsapi.com/divergence**
 - 8 real readings produced by this engine: **https://qimenseek.aicreditsapi.com/cases**
 
+## End-user guides & articles
+
+For people facing real decisions — not just developers — these plain-language guides explain the
+system (no mysticism, full reasoning, every claim sourced to your chart's symbols) and link back to
+the free tools:
+
+- [Why we translate Qi Men Dun Jia into a "space-time decision system"](articles/why-space-time-decision-system.md)
+- [Does Co-Star "work"? A Qi Men Dun Jia perspective](articles/does-costar-work-qimen-perspective.md)
+
+Index: [articles/README.md](articles/README.md)
+
 ## License
 
 MIT
