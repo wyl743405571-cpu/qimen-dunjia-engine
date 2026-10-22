@@ -933,7 +933,10 @@ function paipan(year, month, day, hour, minute, method) {
   var mg = z2G(mz);
   var kg = [];
   for (var ki = 0; ki < xun.kong.length; ki++) kg.push(z2G(xun.kong[ki]));
+  // 空亡两旬支常同落一宫（甲子旬戌亥→6，甲午旬辰巳→4），去重避免 [6,6]/[4,4] 重复旬空
+  kg = kg.filter(function (g, i, a) { return a.indexOf(g) === i; });
   
+
   // 5. 格局
   var chartDataForGeju = { dp: dp, tp: tp, xing: xing, men: men, shen: shen, ygz: ygz, hgz: hgz };
   var geju = detectGeJu(chartDataForGeju);
