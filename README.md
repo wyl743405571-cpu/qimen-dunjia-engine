@@ -131,6 +131,7 @@ the script itself. The two libraries never mix: different books, different denom
 - Published charting ruleset (口径公开): **https://qimenseek.aicreditsapi.com/ruleset.html**
 - Measured school divergence report: **https://qimenseek.aicreditsapi.com/divergence**
 - 8 real readings produced by this engine: **https://qimenseek.aicreditsapi.com/cases**
+- MCP endpoint (Claude/Cursor): **https://qimenseek.aicreditsapi.com/mcp** · docs: <https://qimenseek.aicreditsapi.com/mcp.html> · local stdio server: [mcp/README.md](mcp/README.md)
 
 ## End-user guides & articles
 

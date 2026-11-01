@@ -1,0 +1,11 @@
+# Smithery manifest — stdio variant (local, offline).
+# Verify the current schema against https://smithery.ai/docs before submitting;
+# the hosted streamable-HTTP server (https://qimenseek.aicreditsapi.com/mcp)
+# can alternatively be listed as a remote server with its URL directly.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    (config) => ({ "command": "node", "args": ["mcp/stdio-server.js"] })
